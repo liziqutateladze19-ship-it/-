@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ka">
 <head>
@@ -6,411 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ლიზა & გიორგი — საქორწილო მოსაწვევი</title>
   
-  <!-- Google Fonts: Elegant Georgian Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+Georgian:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Global Styles */
     :root {
       --bg-cream: #FFFDF9;
-      --pastel-pink: #F7EBE8;
-      --accent-gold: #C5A059;
-      --text-main: #4A443F;
-      --text-muted: #7A726B;
-      --card-bg: rgba(255, 255, 255, 0.85);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Noto Serif Georgian', serif;
-      background-color: var(--bg-cream);
-      color: var(--text-main);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Floating Petals / Background Animation */
-    .floating-petal {
-      position: fixed;
-      top: -10%;
-      background-color: #fce4ec;
-      border-radius: 150% 0 150% 0;
-      opacity: 0.6;
-      pointer-events: none;
-      animation: floatDown 10s infinite linear;
-      z-index: 10;
-    }
-
-    @keyframes floatDown {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* Mobile Container */
-    .mobile-container {
-      width: 100%;
-      max-width: 430px;
-      background: #FAFAF7;
-      min-height: 100vh;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      position: relative;
-      padding: 24px 20px 40px;
-      text-align: center;
-    }
-
-    /* Typography & Decorative Lines */
-    h1, h2, h3 {
-      font-weight: 400;
-      color: var(--text-main);
-    }
-
-    .names {
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-      margin: 16px 0 8px;
-      color: #38322E;
-    }
-
-    .date-badge {
-      display: inline-block;
-      font-size: 1.05rem;
-      color: var(--accent-gold);
-      border-top: 1px solid rgba(197, 160, 89, 0.3);
-      border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-      padding: 6px 16px;
-      margin-bottom: 24px;
-      letter-spacing: 0.5px;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      margin: 32px 0 16px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '🌸';
-      display: block;
-      font-size: 0.8rem;
-      margin-top: 4px;
-      opacity: 0.7;
-    }
-
-    /* Image Wrapper with Soft Float Effect */
-    .image-card {
-      width: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      margin: 16px 0;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-      background: #ffffff;
-      animation: gentleFloat 6s ease-in-out infinite alternate;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    @keyframes gentleFloat {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-6px); }
-    }
-
-    /* Countdown Timer Styling */
-    .countdown-container {
-      background: var(--card-bg);
-      border: 1px solid rgba(197, 160, 89, 0.2);
-      border-radius: 16px;
-      padding: 18px;
-      margin: 20px 0 30px;
-      backdrop-filter: blur(5px);
-    }
-
-    .countdown-timer {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 10px;
-    }
-
-    .timer-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .timer-number {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--accent-gold);
-    }
-
-    .timer-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* Content Cards & Buttons */
-    .content-box {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .event-time {
-      font-size: 1.1rem;
-      color: var(--accent-gold);
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .location-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .address {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .map-btn {
-      display: inline-block;
-      padding: 10px 22px;
-      background-color: var(--accent-gold);
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 25px;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(197, 160, 89, 0.25);
-    }
-
-    .map-btn:hover {
-      background-color: #b08d4a;
-    }
-
-    /* Timeline Section */
-    .timeline {
-      position: relative;
-      padding: 10px 0;
-      margin: 16px 0;
-    }
-
-    .timeline-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-time {
-      font-size: 0.95rem;
-      color: var(--accent-gold);
-      font-weight: 600;
-    }
-
-    .timeline-desc {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      margin-top: 2px;
-    }
-
-    /* Footer / Closing Message */
-    .footer-section {
-      margin-top: 40px;
-      padding: 20px;
-      border-top: 1px dashed rgba(197, 160, 89, 0.4);
-    }
-
-    .closing-text {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-      font-style: italic;
-      margin-bottom: 16px;
-    }
-
-    .signature {
-      font-size: 1.1rem;
-      color: var(--text-main);
-      font-weight: 600;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Floating Animation Elements -->
-  <div class="floating-petal" style="left: 10%; width: 12px; height: 18px; animation-duration: 8s; animation-delay: 0s;"></div>
-  <div class="floating-petal" style="left: 45%; width: 10px; height: 15px; animation-duration: 12s; animation-delay: 2s;"></div>
-  <div class="floating-petal" style="left: 80%; width: 14px; height: 20px; animation-duration: 9s; animation-delay: 4s;"></div>
-
-  <div class="mobile-container">
-    
-    <!-- 1. Welcome Section -->
-    <div class="image-card">
-      <img src="Gemini_Generated_Image_pt6ejxpt6ejxpt6e.png" alt="ლიზა და გიორგი">
-    </div>
-
-    <h1 class="names">ლიზა ქუთათელაძე<br>&<br>გიორგი ჩაბრავა</h1>
-    <div class="date-badge">2026 წლის 17 ოქტომბერი</div>
-
-    <!-- 2. Countdown Section -->
-    <div class="countdown-container">
-      <div style="font-size: 0.9rem; color: var(--text-muted);">დარჩენილი დრო</div>
-      <div class="countdown-timer" id="countdown">
-        <div class="timer-box"><span class="timer-number" id="days">00</span><span class="timer-label">დღე</span></div>
-        <div class="timer-box"><span class="timer-number" id="hours">00</span><span class="timer-label">საათი</span></div>
-        <div class="timer-box"><span class="timer-number" id="minutes">00</span><span class="timer-label">წუთი</span></div>
-        <div class="timer-box"><span class="timer-number" id="seconds">00</span><span class="timer-label">წამი</span></div>
-      </div>
-    </div>
-
-    <!-- 3. Day Schedule Title -->
-    <h2 class="section-title">საქორწილო დღის გეგმა</h2>
-
-    <!-- 4. Church Ceremony Section -->
-    <div class="content-box">
-      <div class="image-card" style="animation-delay: -2s;">
-        <img src="IMG_3762-removebg-preview.jpg" alt="საეკლესიო ცერემონია">
-      </div>
-      <div class="event-time">15:30 (4-ის ნახევარი)</div>
-      <div class="location-name">საეკლესიო ცერემონია</div>
-      <div class="address">მთაწმინდის წმ. ნინოს ტაძარი<br>შოთა ჩიტაძის ქ. 9, თბილისი</div>
-      <a href="https://maps.app.goo.gl/2LpKrZV7U8JbyY4d8" target="_blank" class="map-btn">რუკაზე ნახვა</a>
-    </div>
-
-    <!-- 5. Reception Section -->
-    <div class="content-box">
-      <div class="image-card" style="animation-delay: -4s;">
-        <img src="IMG_3770.PNG" alt="საქორწილო წვეულება">
-      </div>
-      <div class="location-name">საქორწილო წვეულება</div>
-      <div class="address">Hillside | ივენთ ჰოლი „ჰილსაიდი“<br>თბილისი-კოჯრის I ჩიხი, თბილისი</div>
-      <a href="https://maps.app.goo.gl/D95GpLyCcRzBArGfA" target="_blank" class="map-btn" style="margin-bottom: 20px;">რუკაზე ნახვა</a>
-
-      <!-- Timeline -->
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-time">18:00</span>
-          <span class="timeline-desc">მისასალმებელი კოქტეილი</span>
-        </div>
-
-        <div class="image-card" style="margin: 12px 0;">
-          <img src="Gemini_Generated_Image_kpquq3kpquq3kpqu.png" alt="ხელის მოწერის ცერემონია">
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-time">19:15</span>
-          <span class="timeline-desc">ხელის მოწერის ცერემონია</span>
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-time">19:30</span>
-          <span class="timeline-desc">საზეიმო ვახშამი</span>
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-time">20:00</span>
-          <span class="timeline-desc">წვეულება</span>
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-time">00:00</span>
-          <span class="timeline-desc">წვეულების გაგრძელება</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. Closing Message -->
-    <div class="footer-section">
-      <p class="closing-text">"გთხოვთ, გაიზიაროთ ჩვენი ბედნიერება და იყოთ ჩვენი სტუმარი ამ განსაკუთრებულ დღეს."</p>
-      <div class="signature">სიყვარულით, ლიზა და გიორგი</div>
-    </div>
-
-  </div>
-
-  <!-- Countdown JavaScript -->
-  <script>
-    const weddingDate = new Date("October 17, 2026 15:30:00").getTime();
-
-    const timer = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "ქორწილის დღე დადგა!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60დიახ, ზუსტად! ეგ ტექსტი იყო დავალება (პრომფტი) ხელოვნური ინტელექტისთვის, რომ მას თქვენთვის **მზა HTML კოდი** დაეწერა.
-
-აი, ქვემოთ მოცემულია თქვენი საქორწილო მოსაწვევის **სრული HTML/CSS/JS კოდი**. 
-
----
-
-### 📋 რა უნდა ქნათ ახლა:
-
-1. **დააკოპირეთ** ქვემოთ მოცემული მთლიანი კოდი (დააჭირეთ კოდის ბლოკის ზედა მარჯვენა კუთხეში ღილაკს **"Copy code"**).
-2. **დაბრუნდით GitHub-ის იმ გვერდზე**, სადაც `index.html` გიწერიათ და დიდ თეთრ ველში (`1 Enter file contents here`) ჩასვით ეს კოდი (`Cmd + V` / `Ctrl + V`).
-3. დააჭირეთ ზედა მარჯვენა კუთხეში მწვანე ღილაკს **`Commit changes...`**.
-
----
-
-```html
-<!DOCTYPE html>
-<html lang="ka">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ლიზა & გიორგი - საქორწილო მოსაწვევი</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-  <link href="[https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+Georgian:wght@300;400;600&display=swap](https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+Georgian:wght@300;400;600&display=swap)" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-cream: #FFFDF9;
-      --card-bg: #FDF8F2;
-      --accent-pink: #E8D3C8;
+      --card-bg: rgba(253, 248, 242, 0.92);
+      --accent-pink: #F7EBE8;
       --text-dark: #4A3E3D;
-      --text-gold: #9B7B56;
-      --shadow-color: rgba(155, 123, 86, 0.15);
+      --text-gold: #C5A059;
+      --shadow-color: rgba(197, 160, 89, 0.18);
     }
 
     * {
@@ -427,52 +33,129 @@
       justify-content: center;
       min-height: 100vh;
       overflow-x: hidden;
+      position: relative;
     }
 
+    /* Envelope Interactive Overlay */
+    #envelope-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #FAF5EF;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 1s ease, visibility 1s ease;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .envelope-card {
+      width: 90%;
+      max-width: 380px;
+      padding: 40px 20px;
+      background: #FFFDF9;
+      border: 2px solid rgba(197, 160, 89, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      /* Lace Border Pattern Simulation */
+      outline: 6px solid #FFFDF9;
+      outline-offset: -12px;
+    }
+
+    .wax-seal {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #d4af37, #aa7c11);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 24px;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 12px rgba(170, 124, 17, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    .open-btn-text {
+      font-size: 1.1rem;
+      color: var(--text-gold);
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+
+    /* Floating Petals / Leaves Animation */
+    .floating-petal {
+      position: fixed;
+      top: -10%;
+      background-color: #f7dcd5;
+      border-radius: 150% 0 150% 0;
+      opacity: 0.6;
+      pointer-events: none;
+      animation: floatDown 9s infinite linear;
+      z-index: 10;
+    }
+
+    @keyframes floatDown {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Main Container */
     .mobile-container {
       width: 100%;
       max-width: 430px;
       background-color: var(--bg-cream);
-      padding: 24px 20px 40px 20px;
+      padding: 24px 20px 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
-      box-shadow: 0 0 25px var(--shadow-color);
+      box-shadow: 0 0 30px var(--shadow-color);
     }
 
-    /* Floating Flower Leaf Animation */
-    .floating-leaf {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      background-color: rgba(232, 211, 200, 0.4);
-      border-radius: 0 100%;
-      animation: float 8s infinite ease-in-out;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .leaf-1 { top: 120px; left: 15px; animation-delay: 0s; transform: rotate(15deg); }
-    .leaf-2 { top: 450px; right: 20px; animation-delay: 2.5s; transform: rotate(-30deg); }
-    .leaf-3 { top: 850px; left: 25px; animation-delay: 5s; transform: rotate(45deg); }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(10deg); }
-    }
-
-    /* Card styling */
+    /* Lace-inspired Floral Decorative Card */
     .card {
       width: 100%;
       background: var(--card-bg);
       border-radius: 20px;
       padding: 24px 20px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       text-align: center;
-      border: 1px solid rgba(155, 123, 86, 0.2);
-      box-shadow: 0 8px 20px var(--shadow-color);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      box-shadow: 0 8px 24px var(--shadow-color);
       position: relative;
+      backdrop-filter: blur(4px);
+    }
+
+    .card::before {
+      content: "❁";
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-gold);
+      font-size: 14px;
+      opacity: 0.6;
     }
 
     .card-img {
@@ -481,167 +164,166 @@
       border-radius: 14px;
       object-fit: cover;
       margin-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      animation: gentleFloat 6s ease-in-out infinite alternate;
     }
 
-    /* Header & Titles */
-    h1 {
-      font-family: 'Noto Serif Georgian', serif;
-      font-size: 22px;
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-5px); }
+    }
+
+    /* Typography & Titles */
+    h1.names {
+      font-size: 1.5rem;
       font-weight: 600;
       color: var(--text-dark);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.4;
     }
 
     .date-badge {
-      font-family: 'Marcellus', 'Noto Serif Georgian', serif;
-      font-size: 15px;
+      font-size: 1.05rem;
       color: var(--text-gold);
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       margin-bottom: 16px;
       font-weight: 600;
+      border-top: 1px dashed rgba(197, 160, 89, 0.4);
+      border-bottom: 1px dashed rgba(197, 160, 89, 0.4);
+      padding: 6px 0;
+      display: inline-block;
+      width: 80%;
     }
 
     .section-title {
-      font-size: 20px;
+      font-size: 1.35rem;
       color: var(--text-gold);
-      margin: 10px 0 20px 0;
+      margin: 15px 0 20px;
       text-align: center;
       position: relative;
-      display: inline-block;
     }
 
     .section-title::after {
       content: "🌸";
       display: block;
-      font-size: 12px;
+      font-size: 13px;
       margin-top: 4px;
       opacity: 0.8;
     }
 
-    /* Countdown Timer */
+    /* Countdown Grid */
     .countdown-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-top: 12px;
+      gap: 10px;
+      margin-top: 14px;
     }
 
     .count-box {
       background: #FFFFFF;
-      padding: 10px 4px;
-      border-radius: 12px;
-      border: 1px solid rgba(155, 123, 86, 0.15);
+      padding: 12px 4px;
+      border-radius: 14px;
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
     .count-num {
       font-family: 'Marcellus', serif;
-      font-size: 20px;
+      font-size: 1.35rem;
       font-weight: bold;
       color: var(--text-gold);
     }
 
     .count-label {
-      font-size: 11px;
+      font-size: 0.72rem;
       color: var(--text-dark);
       margin-top: 2px;
+      opacity: 0.8;
     }
 
-    /* Details & Map Buttons */
+    /* Event Details & Map Buttons */
     .time-text {
-      font-size: 18px;
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--text-gold);
       margin-bottom: 6px;
     }
 
     .location-title {
-      font-size: 16px;
+      font-size: 1.1rem;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .address-text {
-      font-size: 13px;
-      opacity: 0.8;
-      margin-bottom: 16px;
-      line-height: 1.4;
+      font-size: 0.88rem;
+      opacity: 0.85;
+      margin-bottom: 18px;
+      line-height: 1.5;
     }
 
     .map-btn {
       display: inline-block;
-      padding: 10px 22px;
+      padding: 10px 24px;
       background-color: var(--text-gold);
       color: #FFFFFF;
       text-decoration: none;
       border-radius: 25px;
-      font-size: 13px;
+      font-size: 0.85rem;
       font-weight: 600;
-      transition: background-color 0.3s;
-      box-shadow: 0 4px 10px rgba(155, 123, 86, 0.3);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
     }
 
     .map-btn:hover {
-      background-color: #836544;
+      background-color: #a88242;
+      transform: translateY(-2px);
     }
 
-    /* Timeline */
+    /* Timeline Section */
     .timeline {
-      text-align: left;
-      margin-top: 15px;
-      padding-left: 10px;
+      text-align: center;
+      margin-top: 20px;
     }
 
     .timeline-item {
-      position: relative;
-      padding-left: 24px;
-      margin-bottom: 20px;
-      border-left: 2px dashed var(--text-gold);
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
     }
 
     .timeline-item:last-child {
-      border-left: none;
+      border-bottom: none;
       margin-bottom: 0;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -6px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: var(--text-gold);
     }
 
     .timeline-time {
       font-weight: bold;
-      font-size: 14px;
+      font-size: 1.05rem;
       color: var(--text-gold);
     }
 
     .timeline-desc {
-      font-size: 14px;
-      margin-top: 2px;
+      font-size: 0.92rem;
+      margin-top: 3px;
     }
 
     /* Footer Section */
     .closing-section {
       text-align: center;
-      padding: 20px 10px;
-      margin-top: 100px;
+      padding: 30px 10px 10px;
     }
 
     .closing-text {
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.7;
       font-style: italic;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      color: #5a4f4d;
     }
 
     .signature {
-      font-size: 18px;
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--text-gold);
     }
@@ -649,23 +331,29 @@
 </head>
 <body>
 
-  <div class="mobile-container">
-    
-    <!-- Floating leaves -->
-    <div class="floating-leaf leaf-1"></div>
-    <div class="floating-leaf leaf-2"></div>
-    <div class="floating-leaf leaf-3"></div>
+  <div class="floating-petal" style="left: 10%; width: 12px; height: 18px; animation-duration: 8s; animation-delay: 0s;"></div>
+  <div class="floating-petal" style="left: 50%; width: 10px; height: 15px; animation-duration: 11s; animation-delay: 2s;"></div>
+  <div class="floating-petal" style="left: 82%; width: 14px; height: 20px; animation-duration: 9s; animation-delay: 4s;"></div>
 
-    <!-- Welcome Section -->
+  <div id="envelope-overlay" onclick="openInvitation()">
+    <div class="envelope-card">
+      <div class="wax-seal">✉</div>
+      <h2 style="font-size: 1.3rem; color: #4A3E3D; font-weight: 400;">საქორწილო მოსაწვევი</h2>
+      <p style="font-size: 0.9rem; color: #7A726B; margin-top: 6px;">ლიზა & გიორგი</p>
+      <div class="open-btn-text">დააჭირეთ გახსნისთვის ✨</div>
+    </div>
+  </div>
+
+  <div class="mobile-container">
+
     <div class="card">
       <img src="Gemini_Generated_Image_pt6ejxpt6ejxpt6e.png" alt="ლიზა და გიორგი" class="card-img">
-      <h1>ლიზა ქუთათელაძე<br>&amp;<br>გიორგი ჩაბრავა</h1>
-      <div class="date-badge">17 ოქტომბერი, 2026</div>
+      <h1 class="names">ლიზა ქუთათელაძე<br>&<br>გიორგი ჩაბრავა</h1>
+      <div class="date-badge">2026 წლის 17 ოქტომბერი</div>
     </div>
 
-    <!-- Countdown Section -->
     <div class="card">
-      <div class="section-title">დარჩენილი დრო</div>
+      <div style="font-size: 0.95rem; color: var(--text-gold); margin-bottom: 6px;">დარჩენილი დრო</div>
       <div class="countdown-grid">
         <div class="count-box">
           <div class="count-num" id="days">00</div>
@@ -688,21 +376,19 @@
 
     <div class="section-title">საქორწილო დღის გეგმა</div>
 
-    <!-- Church Ceremony -->
     <div class="card">
       <img src="IMG_3762-removebg-preview.jpg" alt="საეკლესიო ცერემონია" class="card-img">
       <div class="location-title">საეკლესიო ცერემონია</div>
-      <div class="time-text">15:30</div>
+      <div class="time-text">15:30 (4-ის ნახევარი)</div>
       <div class="address-text">მთაწმინდის წმ. ნინოს ტაძარი<br>შოთა ჩიტაძის ქ. 9, თბილისი</div>
-      <a href="[https://maps.app.goo.gl/2LpKrZV7U8JbyY4d8](https://maps.app.goo.gl/2LpKrZV7U8JbyY4d8)" target="_blank" class="map-btn">რუკაზე ნახვა</a>
+      <a href="https://maps.app.goo.gl/2LpKrZV7U8JbyY4d8" target="_blank" class="map-btn">რუკაზე ნახვა</a>
     </div>
 
-    <!-- Reception & Timeline -->
     <div class="card">
       <img src="IMG_3770.PNG" alt="საქორწილო წვეულება" class="card-img">
       <div class="location-title">საქორწილო წვეულება</div>
-      <div class="address-text">Hillside | ივენთ ჰოლი „ჰილსაიდი“<br>თბილისი-კოჯრის I შესახვევი</div>
-      <a href="[https://maps.app.goo.gl/D95GpLyCcRzBArGfA](https://maps.app.goo.gl/D95GpLyCcRzBArGfA)" target="_blank" class="map-btn" style="margin-bottom: 25px;">რუკაზე ნახვა</a>
+      <div class="address-text">Hillside | ივენთ ჰოლი „ჰილსაიდი“<br>თბილისი-კოჯრის I ჩიხი, თბილისი</div>
+      <a href="https://maps.app.goo.gl/D95GpLyCcRzBArGfA" target="_blank" class="map-btn" style="margin-bottom: 25px;">რუკაზე ნახვა</a>
 
       <div class="timeline">
         <div class="timeline-item">
@@ -711,7 +397,7 @@
         </div>
 
         <div class="timeline-item">
-          <img src="Gemini_Generated_Image_kpquq3kpquq3kpqu.png" alt="ხელის მოწერა" class="card-img" style="margin-top: 10px;">
+          <img src="Gemini_Generated_Image_kpquq3kpquq3kpqu.png" alt="ხელის მოწერა" class="card-img" style="margin: 10px 0;">
           <div class="timeline-time">19:15</div>
           <div class="timeline-desc">ხელის მოწერის ცერემონია</div>
         </div>
@@ -733,16 +419,24 @@
       </div>
     </div>
 
-    <!-- Closing Section -->
     <div class="closing-section">
       <p class="closing-text">„გთხოვთ, გაიზიაროთ ჩვენი ბედნიერება და იყოთ ჩვენი სტუმარი ამ განსაკუთრებულ დღეს.“</p>
-      <p class="signature">სიყვარულით,<br>ლიზა და გიორგი</p>
+      <div class="signature">სიყვარულით,<br>ლიზა და გიორგი</div>
     </div>
 
   </div>
 
-  <!-- Countdown Script -->
   <script>
+    /* Open Envelope Function */
+    function openInvitation() {
+      const overlay = document.getElementById('envelope-overlay');
+      overlay.style.opacity = '0';
+      setTimeout(() => {
+        overlay.style.visibility = 'hidden';
+      }, 1000);
+    }
+
+    /* Working Countdown Timer for Oct 17, 2026, 15:30:00 */
     const targetDate = new Date('October 17, 2026 15:30:00').getTime();
 
     function updateCountdown() {
@@ -772,5 +466,3 @@
   </script>
 </body>
 </html>
-
-```
